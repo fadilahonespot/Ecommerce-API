@@ -1,0 +1,37 @@
+{
+    "port":{
+        "port": "8679"
+    },
+
+    "database": {
+        "mysql": "root:@tcp(127.0.0.1:3306)/ecommerce?parseTime=true"
+    },
+    "security": {
+        "secret": "kenangan"
+    },
+    "rajaongkir": {
+        "key": "key",
+        "token": "Your Token",
+        "url": "https://api.rajaongkir.com/starter/"
+    },
+    "email": {
+        "switch": "on",
+        "CONFIG_SMTP_HOST": "Your SMTP Host",
+        "CONFIG_SMTP_PORT": "Your Port",
+        "CONFIG_EMAIL": "Your Email",
+        "CONFIG_PASSWORD": "Your Password"
+    },
+    "binderbyte": {
+        "url": "https://api.binderbyte.com/",
+        "token": "Your Token"
+    },
+    "medansms" : {
+        "url": "https://reguler.medansms.co.id/",
+        "token": "Your Token",
+        "email": "Your Email",
+        "message_otp": "Your Message "
+    },
+    "part": {
+        "images": "Your Part"
+    }
+}

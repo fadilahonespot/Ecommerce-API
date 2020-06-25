@@ -1,0 +1,148 @@
+definitions:
+  model.Catagory:
+    properties:
+      catagory_name:
+        example: Electronik
+        type: string
+      user_id:
+        example: 2
+        type: integer
+    type: object
+  model.Respons:
+    properties:
+      Message:
+        example: Success
+        type: string
+      Success:
+        example: true
+        type: boolean
+      data:
+        type: object
+    type: object
+  model.ResponsCat:
+    properties:
+      Message:
+        example: Success
+        type: string
+      Success:
+        example: true
+        type: boolean
+      data:
+        items:
+          $ref: '#/definitions/model.Catagory'
+        type: array
+    type: object
+  model.ResponsFalse:
+    properties:
+      Message:
+        example: message
+        type: string
+      Success:
+        example: false
+        type: boolean
+      data:
+        type: object
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+paths:
+  /catagory:
+    get:
+      consumes:
+      - application/json
+      description: get all catagory
+      operationId: get-allcatagory
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.ResponsCat'
+        "400":
+          description: Id is not exsis"}
+          schema:
+            $ref: '#/definitions/model.ResponsFalse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.ResponsFalse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.ResponsFalse'
+      summary: Show all catagory product ecommerce
+  /mitra/product:
+    get:
+      consumes:
+      - application/json
+      description: get all product mitra in mitra
+      operationId: get-all myproduct mitra
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Respons'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/model.ResponsFalse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.ResponsFalse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.ResponsFalse'
+      security:
+      - ApiKeyAuth: []
+      summary: Show all My Product
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+  BasicAuth:
+    type: basic
+  OAuth2AccessCode:
+    authorizationUrl: https://example.com/oauth/authorize
+    flow: accessCode
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+  OAuth2Application:
+    flow: application
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      write: ' Grants write access'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+  OAuth2Implicit:
+    authorizationUrl: https://example.com/oauth/authorize
+    flow: implicit
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      write: ' Grants write access'
+    type: oauth2
+  OAuth2Password:
+    flow: password
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      read: ' Grants read access'
+      write: ' Grants write access'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+swagger: "2.0"
+x-extension-openapi:
+  example: value on a json format
